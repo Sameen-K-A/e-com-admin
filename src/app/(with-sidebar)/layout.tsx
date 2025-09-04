@@ -5,6 +5,7 @@ import { Header } from "@/components/sidebar/Header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import type { IsidebarItems } from "@/types/general"
 import { IoCart, IoSettingsSharp, IoHome } from "react-icons/io5";
+import { BiSolidCollection } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 
@@ -17,6 +18,12 @@ export default function WithSidebarLayout({ children }: { children: React.ReactN
       url: ROUTE.DASHBOARD,
       icon: IoHome,
       onClick: () => router.push(ROUTE.DASHBOARD),
+    },
+    {
+      title: "Products",
+      url: ROUTE.PRODUCTS,
+      icon: BiSolidCollection,
+      onClick: () => router.push(ROUTE.PRODUCTS),
     },
     {
       title: "Orders",

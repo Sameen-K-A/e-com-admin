@@ -79,11 +79,11 @@ export const OrderTable = ({ orders }: OrderTableProps) => {
                 <TableCell className="p-4 text-center">
                   <Badge
                     variant={
-                      order.fulfillmentStatus === 'Delivered' ? 'delivered' :
-                        order.fulfillmentStatus === 'Shipped' ? 'shipped' :
-                          order.fulfillmentStatus === 'Processing' ? 'processing' :
-                            order.fulfillmentStatus === 'Cancelled' ? 'cancelled' :
-                              'pending'
+                      order.fulfillmentStatus === 'Delivered' ? 'green' :
+                        order.fulfillmentStatus === 'Shipped' ? 'blue' :
+                          order.fulfillmentStatus === 'Processing' ? 'orange' :
+                            order.fulfillmentStatus === 'Cancelled' ? 'red' :
+                              'yellow'
                     }
                     className="whitespace-nowrap w-fit"
                   >

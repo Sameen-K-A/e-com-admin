@@ -13,3 +13,12 @@ export interface IOrder {
   total: number;
   fulfillmentStatus: 'Pending' | 'Processing' | 'Shipped' | 'Delivered' | 'Cancelled';
 };
+
+export interface IProduct {
+  id: string;
+  name: string;
+  image: string;
+  category: string;
+  price: string;
+  stockStatus: string;
+};

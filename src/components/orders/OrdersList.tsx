@@ -18,7 +18,7 @@ export default function OrdersList() {
   };
 
   return (
-    <div className="border-b h-fit">
+    <div className="h-fit">
       <div className="container mx-auto space-y-4">
         <OrderListHeader
           onFilter={handleFilter}
