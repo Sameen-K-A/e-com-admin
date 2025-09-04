@@ -4,4 +4,5 @@ export const ROUTE = {
   DASHBOARD: "/dashboard",
   ACCOUNTS: "/accounts",
   ORDERS: "/orders",
+  ORDER_DETAILS: (orderId: string) => `/orders/${orderId}`,
 };
