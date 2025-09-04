@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Outfit } from "next/font/google"
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -7,10 +8,12 @@ export const metadata: Metadata = {
   keywords: ["dropshipping", "ecommerce platform", "Ecom Admin", "online store management", "product management", "order tracking", "inventory management", "nextjs ecommerce", "sell online"],
 };
 
+const font = Outfit({ subsets: ['latin'], weight: ['400'] });
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="antialiased p-4" suppressHydrationWarning>
+      <body className={`${font.className} antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>
