@@ -25,3 +25,13 @@ export interface IProduct {
   images: string[];
   isPublished: boolean;
 };
+
+export interface ICustomer {
+  customerId: string;
+  name: string;
+  email: string
+}
+
+export interface ICustomerTableList extends ICustomer {
+  numberOfOrders: number;
+}
