@@ -57,7 +57,7 @@ export const ProductTable = ({ products }: ProductTableProps) => {
                 <TableCell className="p-4">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-muted rounded-md flex items-center justify-center">
-                      <Avatar className="h-8 w-8 rounded-full cursor-pointer">
+                      <Avatar className="h-8 w-8 rounded-sm cursor-pointer">
                         <AvatarImage src={product.images[0]} alt="Product image" />
                       </Avatar>
                     </div>
