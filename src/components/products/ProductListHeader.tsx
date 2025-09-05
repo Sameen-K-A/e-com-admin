@@ -3,14 +3,17 @@
 import { Plus, Filter, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ROUTE } from "@/constants/routes";
+import { useRouter } from "next/navigation";
 
 interface ProductListHeaderProps {
-  onAddProduct: () => void;
   onFilter: () => void;
   onSearchChange: (value: string) => void;
 }
 
-export const ProductListHeader = ({ onAddProduct, onFilter, onSearchChange }: ProductListHeaderProps) => {
+export const ProductListHeader = ({ onFilter, onSearchChange }: ProductListHeaderProps) => {
+  const router = useRouter();
+
   return (
     <div className="flex items-center justify-between gap-2 h-10">
 
@@ -34,7 +37,7 @@ export const ProductListHeader = ({ onAddProduct, onFilter, onSearchChange }: Pr
           <span className="hidden md:inline">Filter</span>
         </Button>
 
-        <Button onClick={onAddProduct} className="gap-2 rounded-3xl w-fit md:min-w-32 h-9">
+        <Button onClick={() => router.push(ROUTE.ADD_PRODUCT)} className="gap-2 rounded-3xl w-fit md:min-w-32 h-9">
           <Plus className="h-4 w-4" />
           <span className="hidden md:inline">Add Product</span>
         </Button>

@@ -4,12 +4,19 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { IProduct } from "@/types/general"
+import { Button } from "../ui/button"
+import { EllipsisVertical } from "lucide-react"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
+import { ROUTE } from "@/constants/routes"
+import { useRouter } from "next/navigation"
 
 interface ProductTableProps {
   products: IProduct[]
 }
 
 export const ProductTable = ({ products }: ProductTableProps) => {
+  const router = useRouter();
+
   return (
     <div className="overflow-hidden">
       <div className="overflow-x-auto">
@@ -29,8 +36,12 @@ export const ProductTable = ({ products }: ProductTableProps) => {
                 Price
               </TableHead>
               <TableHead className="text-center whitespace-nowrap p-2 px-4 text-sm font-medium text-muted-foreground">
-                Stock Status
+                Offer %
               </TableHead>
+              <TableHead className="text-center whitespace-nowrap p-2 px-4 text-sm font-medium text-muted-foreground">
+                Published
+              </TableHead>
+              <TableHead className="text-right whitespace-nowrap p-2 text-sm font-medium text-muted-foreground" />
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -56,13 +67,28 @@ export const ProductTable = ({ products }: ProductTableProps) => {
                   {product.category}
                 </TableCell>
                 <TableCell className="p-4 text-sm font-medium whitespace-nowrap text-center text-foreground">
-                  {product.price}
+                  ₹{product.originalPrice.toFixed(2)}
+                </TableCell>
+                <TableCell className="p-4 text-sm font-medium whitespace-nowrap text-center text-foreground">
+                  {product.offerPercentage}%
                 </TableCell>
                 <TableCell className="p-4 text-center">
                   <Badge
-                    variant={product.stockStatus === "Available" ? "green" : "red"} className="whitespace-nowrap" >
-                    {product.stockStatus}
+                    variant={product.isPublished ? "green" : "red"} className="whitespace-nowrap" >
+                    {product.isPublished ? 'Published' : 'Not published'}
                   </Badge>
+                </TableCell>
+                <TableCell className="p-2 text-right w-10">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="icon" className="hover:bg-background">
+                        <EllipsisVertical />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem onClick={() => router.push(ROUTE.EDIT_PRODUCT(product.id))}>Edit</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </TableCell>
               </TableRow>
             ))}

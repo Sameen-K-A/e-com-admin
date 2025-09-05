@@ -17,8 +17,11 @@ export interface IOrder {
 export interface IProduct {
   id: string;
   name: string;
-  image: string;
+  description: string;
   category: string;
-  price: string;
-  stockStatus: string;
+  originalPrice: number;
+  offerPercentage: number;
+  stocks: number;
+  images: string[];
+  isPublished: boolean;
 };
