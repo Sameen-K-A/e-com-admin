@@ -67,7 +67,7 @@ export const ProductTable = ({ products }: ProductTableProps) => {
                   {product.category}
                 </TableCell>
                 <TableCell className="p-4 text-sm font-medium whitespace-nowrap text-center text-foreground">
-                  ₹{product.originalPrice.toFixed(2)}
+                  ₹{(product.originalPrice * (1 - product.offerPercentage / 100)).toFixed(2)} / <span className="text-muted-foreground text-xs line-through">{product.originalPrice}</span>
                 </TableCell>
                 <TableCell className="p-4 text-sm font-medium whitespace-nowrap text-center text-foreground">
                   {product.offerPercentage}%
