@@ -4,6 +4,7 @@ export const ROUTE = {
   DASHBOARD: "/dashboard",
   PRODUCTS: "/products",
   ADD_PRODUCT: "/products/add_product",
+  PRODUCT_DETAILS: (product_id: string) => `/products/${product_id}/product_details`,
   EDIT_PRODUCT: (product_id: string) => `/products/${product_id}/edit_product`,
   ACCOUNTS: "/accounts",
   ORDERS: "/orders",

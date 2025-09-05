@@ -49,6 +49,7 @@ export const ProductTable = ({ products }: ProductTableProps) => {
               <TableRow
                 key={product.id}
                 className="border-b border-border last:border-b-0 hover:bg-muted/50 transition-all duration-200 ease-in-out cursor-pointer"
+                onClick={() => router.push(ROUTE.PRODUCT_DETAILS(product.id))}
               >
                 <TableCell className="p-4 text-left text-sm whitespace-nowrap text-muted-foreground">
                   {product.id}
@@ -57,7 +58,7 @@ export const ProductTable = ({ products }: ProductTableProps) => {
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-muted rounded-md flex items-center justify-center">
                       <Avatar className="h-8 w-8 rounded-full cursor-pointer">
-                        <AvatarImage src="Logo" alt="Logo" />
+                        <AvatarImage src={product.images[0]} alt="Product image" />
                       </Avatar>
                     </div>
                     <span className="text-sm font-medium whitespace-nowrap text-foreground">{product.name}</span>
@@ -67,7 +68,7 @@ export const ProductTable = ({ products }: ProductTableProps) => {
                   {product.category}
                 </TableCell>
                 <TableCell className="p-4 text-sm font-medium whitespace-nowrap text-center text-foreground">
-                  ₹{(product.originalPrice * (1 - product.offerPercentage / 100)).toFixed(2)} / <span className="text-muted-foreground text-xs line-through">{product.originalPrice}</span>
+                  ₹{(product.originalPrice * (1 - product.offerPercentage / 100)).toFixed(2)} / <span className="text-muted-foreground text-xs line-through">₹{product.originalPrice.toFixed(2)}</span>
                 </TableCell>
                 <TableCell className="p-4 text-sm font-medium whitespace-nowrap text-center text-foreground">
                   {product.offerPercentage}%
@@ -86,7 +87,7 @@ export const ProductTable = ({ products }: ProductTableProps) => {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem onClick={() => router.push(ROUTE.EDIT_PRODUCT(product.id))}>Edit</DropdownMenuItem>
+                      <DropdownMenuItem onClick={(e) => { e.stopPropagation(); router.push(ROUTE.EDIT_PRODUCT(product.id)) }}>Edit</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>

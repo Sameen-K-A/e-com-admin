@@ -20,7 +20,7 @@ interface IProductFormProps {
 export const ProductForm = ({ selectedProduct }: IProductFormProps) => {
 
   const [product, setProduct] = useState<IProduct>({
-    id: selectedProduct?.id || crypto.randomUUID(),
+    id: selectedProduct?.id || "new_prodct",
     name: selectedProduct?.name || '',
     description: selectedProduct?.description || '',
     category: selectedProduct?.category || "",
