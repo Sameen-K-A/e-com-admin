@@ -35,3 +35,12 @@ export interface ICustomer {
 export interface ICustomerTableList extends ICustomer {
   numberOfOrders: number;
 }
+
+export interface IAdminMember {
+  id: string,
+  name: string,
+  email: string,
+  role: "Super Admin" | "Admin" | "Member",
+  avatar: string,
+  status: "active" | "inactive",
+};
