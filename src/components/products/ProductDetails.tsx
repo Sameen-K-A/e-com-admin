@@ -163,7 +163,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
       </div>
       {/* Mobile/Tablet Fixed Bottom Buttons */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 border-t px-4 py-2 flex gap-2 bg-background">
-        <Button variant="outline" onClick={() => router.push(ROUTE.PRODUCTS)} className="flex-1">Cancel</Button>
+        <Button variant="outline" onClick={() => router.push(ROUTE.PRODUCTS)} className="flex-1">Back</Button>
         <Button className="flex-1" onClick={() => router.push(ROUTE.EDIT_PRODUCT(product.id))}>Edit</Button>
       </div>
 

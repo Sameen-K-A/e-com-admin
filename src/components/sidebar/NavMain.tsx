@@ -17,7 +17,7 @@ export function NavMain({ sidebarData }: NavMainProps) {
       <SidebarGroupContent className="flex flex-col gap-2">
         <SidebarMenu>
           {sidebarData.map((item) => {
-            const isActive = pathname === item.url;
+            const isActive = pathname.startsWith(item.url);
             return (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton

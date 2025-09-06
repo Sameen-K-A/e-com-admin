@@ -7,12 +7,29 @@ export interface IsidebarItems {
 
 export interface IOrder {
   id: string;
-  customer: { name: string; email: string };
-  date: string;
-  items: { image: string; }[];
-  total: number;
+  customer: ICustomer;
+  products: IOrderItem[];
+  dateOfOrder: string;
   fulfillmentStatus: 'Pending' | 'Processing' | 'Shipped' | 'Delivered' | 'Cancelled';
+  paymentStatus: 'pending' | 'complete';
+  shippingAddress: IOrderAddress;
+  total: number;
 };
+
+export interface IOrderItem {
+  product: IProduct;
+  quantity: number;
+};
+
+export interface IOrderAddress {
+  name: string;
+  houseName: string;
+  district: string;
+  state: string;
+  country: string;
+  pincode: string;
+  phoneNumber: string;
+}
 
 export interface IProduct {
   id: string;

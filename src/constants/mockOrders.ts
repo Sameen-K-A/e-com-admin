@@ -1,42 +1,116 @@
 import { IOrder } from "@/types/general";
+import { mockCustomers } from "./mockCustomers";
+import { mockProducts } from "./mockProducts";
 
 const mockOrders: IOrder[] = [
   {
     id: "ORD-1024",
-    customer: { name: "John Doe", email: "testuser@gmail.com" },
-    date: "2023-05-15",
-    items: [
-      { image: "https://images.unsplash.com/photo-1520975926218-849c2ed4a83c" },
-      { image: "https://images.unsplash.com/photo-1520975661595-6453be3f7070" },
-      { image: "https://images.unsplash.com/photo-1621624666561-7e5c32709b4c" }
-    ],
-    total: 149.99,
-    fulfillmentStatus: "Shipped"
+    customer: mockCustomers[0],
+    dateOfOrder: "2023-05-15",
+    products: mockProducts.slice(0, 2).map((pro) => ({ product: { ...pro }, quantity: 2 })),
+    total: 400,
+    fulfillmentStatus: "Pending",
+    paymentStatus: "pending",
+    shippingAddress: {
+      name: "Sameen K A",
+      houseName: "Kuruppassery",
+      district: "Aalappuzha",
+      state: "Kerala",
+      country: "India",
+      pincode: "688265",
+      phoneNumber: "95626262626",
+    },
   },
   {
     id: "ORD-1025",
-    customer: { name: "Jane Smith", email: "testuser@gmail.com" },
-    date: "2023-05-16",
-    items: [
-      { image: "https://images.unsplash.com/photo-1618354691233-fc93b6e5d63b" }
-    ],
-    total: 49.99,
-    fulfillmentStatus: "Delivered"
+    customer: mockCustomers[1],
+    dateOfOrder: "2023-06-02",
+    products: mockProducts.slice(1, 3).map((pro) => ({ product: { ...pro }, quantity: 1 })),
+    total: 575,
+    fulfillmentStatus: "Processing",
+    paymentStatus: "complete",
+    shippingAddress: {
+      name: "John Doe",
+      houseName: "Lakeview",
+      district: "Kochi",
+      state: "Kerala",
+      country: "India",
+      pincode: "682020",
+      phoneNumber: "9876543210",
+    },
   },
   {
     id: "ORD-1026",
-    customer: { name: "Robert Johnson", email: "testuser@gmail.com" },
-    date: "2023-05-17",
-    items: [
-      { image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" },
-      { image: "https://images.pexels.com/photos/12893528/pexels-photo-12893528.jpeg" },
-      { image: "https://images.unsplash.com/photo-1619983081563-430f63602704" },
-      { image: "https://images.unsplash.com/photo-1603252109303-2751441f0752" },
-      { image: "https://images.pexels.com/photos/12893529/pexels-photo-12893529.jpeg" }
-    ],
-    total: 299.99,
-    fulfillmentStatus: "Pending"
-  }
+    customer: mockCustomers[2],
+    dateOfOrder: "2023-06-15",
+    products: mockProducts.slice(1, 4).map((pro) => ({ product: { ...pro }, quantity: 3 })),
+    total: 1999,
+    fulfillmentStatus: "Shipped",
+    paymentStatus: "complete",
+    shippingAddress: {
+      name: "Aarav Menon",
+      houseName: "Rose Villa",
+      district: "Trivandrum",
+      state: "Kerala",
+      country: "India",
+      pincode: "695014",
+      phoneNumber: "9123456789",
+    },
+  },
+  {
+    id: "ORD-1027",
+    customer: mockCustomers[0],
+    dateOfOrder: "2023-07-01",
+    products: mockProducts.slice(0, 1).map((pro) => ({ product: { ...pro }, quantity: 4 })),
+    total: 299,
+    fulfillmentStatus: "Delivered",
+    paymentStatus: "complete",
+    shippingAddress: {
+      name: "Sameen K A",
+      houseName: "Kuruppassery",
+      district: "Aalappuzha",
+      state: "Kerala",
+      country: "India",
+      pincode: "688265",
+      phoneNumber: "95626262626",
+    },
+  },
+  {
+    id: "ORD-1028",
+    customer: mockCustomers[1],
+    dateOfOrder: "2023-07-20",
+    products: mockProducts.slice(3, 5).map((pro) => ({ product: { ...pro }, quantity: 1 })),
+    total: 500,
+    fulfillmentStatus: "Cancelled",
+    paymentStatus: "pending",
+    shippingAddress: {
+      name: "John Doe",
+      houseName: "Lakeview",
+      district: "Kochi",
+      state: "Kerala",
+      country: "India",
+      pincode: "682020",
+      phoneNumber: "9876543210",
+    },
+  },
+  {
+    id: "ORD-1029",
+    customer: mockCustomers[2],
+    dateOfOrder: "2023-08-05",
+    products: mockProducts.slice(4, 6).map((pro) => ({ product: { ...pro }, quantity: 2 })),
+    total: 1749,
+    fulfillmentStatus: "Processing",
+    paymentStatus: "pending",
+    shippingAddress: {
+      name: "Aarav Menon",
+      houseName: "Rose Villa",
+      district: "Trivandrum",
+      state: "Kerala",
+      country: "India",
+      pincode: "695014",
+      phoneNumber: "9123456789",
+    },
+  },
 ];
 
-export default mockOrders
+export default mockOrders;

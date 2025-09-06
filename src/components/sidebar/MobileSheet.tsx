@@ -48,7 +48,7 @@ export function MobileSheet({ sidebarData }: MobileSheetProps) {
         </SheetHeader>
         <div className="px-4 pb-4 flex flex-col h-full gap-1.5 overflow-y-auto">
           {sidebarData.map((item) => {
-            const isActive = pathname === item.url;
+            const isActive = pathname.startsWith(item.url);
             return (
               <button
                 key={item.title}

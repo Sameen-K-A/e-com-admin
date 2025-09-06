@@ -14,7 +14,7 @@ export function AppSidebar({ sidebarData: _sidebarData, ...props }: AppSidebarPr
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem className='font-logo text-2xl font-bold ml-2 mt-3 mb-2'>
-            E-Com
+            E-<span className="bg-gradient-to-l from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">Com</span>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>

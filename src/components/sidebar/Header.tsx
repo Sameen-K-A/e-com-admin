@@ -15,7 +15,9 @@ export function Header({ sidebarData }: HeaderProps) {
         <SidebarTrigger />
       </div>
       <div className="flex md:hidden w-full items-center justify-between">
-        <h3 className='font-logo text-2xl font-bold mt-3 mb-2'>E-Com</h3>
+        <h3 className='font-logo text-2xl font-bold mt-3 mb-2'>
+          E-<span className="bg-gradient-to-l from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">Com</span>
+        </h3>
         <MobileSheet sidebarData={sidebarData} />
       </div>
     </header>
