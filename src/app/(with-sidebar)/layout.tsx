@@ -7,6 +7,7 @@ import type { IsidebarItems } from "@/types/general"
 import { IoCart, IoSettingsSharp, IoHome } from "react-icons/io5";
 import { FaUsers } from "react-icons/fa";
 import { BiSolidCollection } from "react-icons/bi";
+import { MdCategory } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 
@@ -25,6 +26,12 @@ export default function WithSidebarLayout({ children }: { children: React.ReactN
       url: ROUTE.PRODUCTS,
       icon: BiSolidCollection,
       onClick: () => router.push(ROUTE.PRODUCTS),
+    },
+    {
+      title: "Categories",
+      url: ROUTE.CATEGORIES,
+      icon: MdCategory,
+      onClick: () => router.push(ROUTE.CATEGORIES),
     },
     {
       title: "Orders",

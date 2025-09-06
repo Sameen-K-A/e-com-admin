@@ -61,3 +61,9 @@ export interface IAdminMember {
   avatar: string,
   status: "active" | "inactive",
 };
+
+export interface ICategory {
+  id: string;
+  name: string;
+  productCount: number;
+};
