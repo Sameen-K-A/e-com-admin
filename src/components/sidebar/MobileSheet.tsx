@@ -5,6 +5,7 @@ import type { IsidebarItems } from "@/types/general";
 import { ChevronLeft, ChevronRight, Menu } from 'lucide-react';
 import * as React from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import LogoutButton from './Logout';
 
 interface MobileSheetProps {
   sidebarData: IsidebarItems[];
@@ -45,7 +46,7 @@ export function MobileSheet({ sidebarData }: MobileSheetProps) {
             </button>
           </SheetClose>
         </SheetHeader>
-        <div className="px-4 flex flex-col gap-1.5">
+        <div className="px-4 pb-4 flex flex-col h-full gap-1.5 overflow-y-auto">
           {sidebarData.map((item) => {
             const isActive = pathname === item.url;
             return (
@@ -60,6 +61,7 @@ export function MobileSheet({ sidebarData }: MobileSheetProps) {
               </button>
             );
           })}
+          <LogoutButton className='mt-auto' />
         </div>
       </SheetContent>
     </Sheet>

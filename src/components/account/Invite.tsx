@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { UserPlus, Mail } from "lucide-react"
+import { FaUserPlus } from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
 
 export function InviteMembers() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -20,7 +21,7 @@ export function InviteMembers() {
     <div className="border border-border rounded-lg p-4">
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-          <UserPlus className="h-5 w-5" />
+          <FaUserPlus className="h-5 w-5" />
           Invite Team Members
         </h2>
         <p className="text-sm text-muted-foreground mt-1">
@@ -31,7 +32,7 @@ export function InviteMembers() {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogTrigger asChild>
           <Button>
-            <Mail className="h-4 w-4 mr-1" />
+            <IoMail className="h-4 w-4 mr-1" />
             Send Invitation
           </Button>
         </DialogTrigger>

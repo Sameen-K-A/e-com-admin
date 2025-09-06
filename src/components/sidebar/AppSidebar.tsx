@@ -1,8 +1,9 @@
 "use client";
 
 import { NavMain } from './NavMain'
-import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar'
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar'
 import type { IsidebarItems } from "@/types/general"
+import LogoutButton from './Logout';
 
 
 type AppSidebarProps = React.ComponentProps<typeof Sidebar> & { sidebarData: IsidebarItems[] };
@@ -20,6 +21,9 @@ export function AppSidebar({ sidebarData: _sidebarData, ...props }: AppSidebarPr
       <SidebarContent>
         <NavMain sidebarData={_sidebarData} />
       </SidebarContent>
+      <SidebarFooter>
+        <LogoutButton />
+      </SidebarFooter>
     </Sidebar>
   )
 };

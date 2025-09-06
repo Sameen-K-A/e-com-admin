@@ -4,7 +4,8 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Shield, Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff } from "lucide-react"
+import { GiCheckedShield } from "react-icons/gi";
 
 export function SecuritySection() {
   const [passwordData, setPasswordData] = useState({
@@ -35,7 +36,7 @@ export function SecuritySection() {
     <div className="border border-border rounded-lg p-4">
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-          <Shield className="h-5 w-5" />
+          <GiCheckedShield className="h-5 w-5" />
           Security Settings
         </h2>
         <p className="text-sm text-muted-foreground mt-1">Update your password and security preferences.</p>

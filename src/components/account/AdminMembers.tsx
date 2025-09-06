@@ -5,7 +5,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-import { EllipsisVertical, Users } from "lucide-react"
+import { EllipsisVertical } from "lucide-react"
+import { FaUsersCog } from "react-icons/fa";
 import { teamMembers } from "@/constants/mockAdminMembers"
 import { IAdminMember } from "@/types/general"
 
@@ -22,7 +23,7 @@ export function AdminTeamTable() {
     <div className="border border-border rounded-lg p-4">
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-          <Users className="h-5 w-5" />
+          <FaUsersCog className="h-5 w-5" />
           Admin Team
         </h2>
         <p className="text-sm text-muted-foreground mt-1">Manage team members, roles, and permissions.</p>
@@ -49,7 +50,7 @@ export function AdminTeamTable() {
             {teamMembers.map((member: IAdminMember, index: number) => (
               <TableRow
                 key={member.id}
-                className={`"border-b border-border last:border-b-0 ${member.status === "active" ? "bg-background" : "bg-red-500/5"} hover:bg-muted/50 transition-all duration-200 ease-in-out cursor-pointer`}
+                className={`"border-b border-border last:border-b-0 ${member.status === "active" ? "bg-background hover:bg-muted/50" : "bg-red-500/5 hover:bg-red-500/10"} transition-all duration-200 ease-in-out`}
               >
                 <TableCell className="p-2 px-4 text-left text-sm whitespace-nowrap">
                   {index + 1}
