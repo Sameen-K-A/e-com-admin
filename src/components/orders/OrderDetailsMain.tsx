@@ -4,6 +4,8 @@ import mockOrders from "@/constants/mockOrders";
 import { ROUTE } from "@/constants/routes";
 import { ChevronRight } from "lucide-react";
 import { FaCalendarAlt, FaMapMarkerAlt, FaUser } from "react-icons/fa";
+import { RiMoneyRupeeCircleFill } from "react-icons/ri";
+import { FaCartShopping } from "react-icons/fa6";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { IoMail } from "react-icons/io5";
@@ -34,31 +36,6 @@ export default function ProductDetailsMain() {
             <ChevronRight size={12} />
           </span>
           <span className="text-foreground font-medium">{order.id}</span>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-4 text-sm mb-6">
-        <div className="flex gap-2 items-center">
-          Payment status:
-          <Badge variant={order.paymentStatus === "pending" ? "yellow" : "green"} className="flex items-center gap-1">
-            {order.paymentStatus === "pending" ? "Pending" : "Complete"}
-          </Badge>
-        </div>
-
-        <div className="flex gap-2 items-center">
-          Order status:
-          <Badge
-            variant={
-              order.fulfillmentStatus === 'Delivered' ? 'green' :
-                order.fulfillmentStatus === 'Shipped' ? 'blue' :
-                  order.fulfillmentStatus === 'Processing' ? 'orange' :
-                    order.fulfillmentStatus === 'Cancelled' ? 'red' :
-                      'yellow'
-            }
-            className="whitespace-nowrap w-fit"
-          >
-            {order.fulfillmentStatus}
-          </Badge>
         </div>
       </div>
 
@@ -169,6 +146,33 @@ export default function ProductDetailsMain() {
                     <p className="text-sm text-muted-foreground">
                       {order.dateOfOrder}
                     </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <RiMoneyRupeeCircleFill className="h-4.5 w-4.5 text-muted-foreground" />
+                  <div>
+                    <p className="text-sm font-medium mb-0.5">Payment status</p>
+                    <Badge variant={order.paymentStatus === "pending" ? "yellow" : "green"} className="flex items-center gap-1">
+                      {order.paymentStatus === "pending" ? "Pending" : "Complete"}
+                    </Badge>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <FaCartShopping className="h-4 w-4 text-muted-foreground" />
+                  <div>
+                    <p className="text-sm font-medium">Order status</p>
+                    <Badge
+                      variant={
+                        order.fulfillmentStatus === 'Delivered' ? 'green' :
+                          order.fulfillmentStatus === 'Shipped' ? 'blue' :
+                            order.fulfillmentStatus === 'Processing' ? 'orange' :
+                              order.fulfillmentStatus === 'Cancelled' ? 'red' :
+                                'yellow'
+                      }
+                      className="whitespace-nowrap w-fit"
+                    >
+                      {order.fulfillmentStatus}
+                    </Badge>
                   </div>
                 </div>
               </div>
