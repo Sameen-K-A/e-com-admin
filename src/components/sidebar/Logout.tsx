@@ -22,8 +22,8 @@ export default function LogoutButton({ className }: ILogoutButtonProps) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Confirm Logout</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-left">Confirm Logout</DialogTitle>
+          <DialogDescription className="text-left">
             Are you sure you want to logout? You will need to sign in again to access
           </DialogDescription>
         </DialogHeader>

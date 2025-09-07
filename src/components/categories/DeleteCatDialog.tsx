@@ -22,8 +22,8 @@ export default function DeleteDialog({ isOpen, onOpenChange, selectedCategory }:
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Are you sure?</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-left">Are you sure?</DialogTitle>
+          <DialogDescription className="text-left">
             Do you want to delete the <b className='text-primary'>{selectedCategory?.name}</b> category?
           </DialogDescription>
         </DialogHeader>
