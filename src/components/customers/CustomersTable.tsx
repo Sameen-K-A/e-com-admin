@@ -15,7 +15,7 @@ export const CustomersTable = ({ customers }: CustomersTableProps) => {
         <Table>
           <TableHeader className="bg-muted/50">
             <TableRow className="border-b border-border hover:bg-transparent">
-              <TableHead className="text-left p-2 px-4 text-sm font-medium text-muted-foreground">
+              <TableHead className="text-left p-2 px-4 w-20 text-sm font-medium text-muted-foreground">
                 Customer ID
               </TableHead>
               <TableHead className="text-left p-2 px-4 text-sm font-medium text-muted-foreground">
@@ -32,7 +32,7 @@ export const CustomersTable = ({ customers }: CustomersTableProps) => {
                 key={customer.customerId}
                 className="border-b border-border last:border-b-0 hover:bg-muted/50 transition-all duration-200 ease-in-out"
               >
-                <TableCell className="p-2 px-4 text-left text-sm font-medium text-foreground">
+                <TableCell className="p-2 px-4 w-20 text-left text-sm font-medium text-foreground">
                   {customer.customerId}
                 </TableCell>
                 <TableCell className="p-2 px-4">
@@ -41,7 +41,7 @@ export const CustomersTable = ({ customers }: CustomersTableProps) => {
                     <span className="text-sm text-muted-foreground whitespace-nowrap">{customer.email}</span>
                   </div>
                 </TableCell>
-                <TableCell className="p-2 px-4 text-center text-sm text-muted-foreground">
+                <TableCell className="p-2 px-4 text-center text-sm">
                   {customer.numberOfOrders}
                 </TableCell>
               </TableRow>

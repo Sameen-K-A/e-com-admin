@@ -5,6 +5,7 @@ import { Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { mockCategories } from "@/constants/mockCategories";
+import { PopoverClose } from "@radix-ui/react-popover";
 
 interface FilterState {
   categories: string[];
@@ -54,10 +55,9 @@ export const ProductFilter = () => {
     }
   };
 
-
   const clearAllFilters = () => {
     const defaultFilters: FilterState = {
-      categories: [],
+      categories: ["all"],
       publishedStatus: 'all',
       sortBy: 'name',
       sortOrder: 'asc',
@@ -80,13 +80,23 @@ export const ProductFilter = () => {
             <h4 className="font-medium text-sm">Filter & Sort</h4>
             <div className="flex items-center gap-1 h-7">
               <Button
-                variant="ghost"
+                variant="outline"
                 size="sm"
                 onClick={clearAllFilters}
-                className="h-7 text-xs text-destructive hover:bg-red-500/10"
+                className="h-7 text-xs px-2 text-destructive border-red-500 hover:bg-red-500/10"
               >
                 Clear all
               </Button>
+              <PopoverClose asChild>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={clearAllFilters}
+                  className="h-7 text-xs"
+                >
+                  Apply filter
+                </Button>
+              </PopoverClose>
             </div>
           </div>
 

@@ -7,6 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import type { DateRange } from "react-day-picker";
+import { PopoverClose } from "@radix-ui/react-popover";
 
 interface OrderFilterState {
   status: string[];
@@ -86,14 +87,26 @@ export const OrderFilter = () => {
           {/* Header */}
           <div className="flex items-center justify-between">
             <h4 className="font-medium text-sm">Filter & Sort</h4>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={clearAllFilters}
-              className="h-7 text-xs text-destructive hover:bg-red-500/10"
-            >
-              Clear all
-            </Button>
+            <div className="flex items-center gap-1 h-7">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={clearAllFilters}
+                className="h-7 text-xs px-2 text-destructive border-red-500 hover:bg-red-500/10"
+              >
+                Clear all
+              </Button>
+              <PopoverClose asChild>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={clearAllFilters}
+                  className="h-7 text-xs"
+                >
+                  Apply filter
+                </Button>
+              </PopoverClose>
+            </div>
           </div>
 
           {/* Sort By */}
