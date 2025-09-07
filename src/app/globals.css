@@ -70,6 +70,17 @@
   font-family: 'Unbounded', sans-serif;
 }
 
+html,
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #848484 #ffffff00;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;
   height: 5px;
