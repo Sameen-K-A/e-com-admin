@@ -8,10 +8,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { X, ChevronRight, CloudUpload } from 'lucide-react';
-import { IProduct } from '@/types/general';
+import { ICategory, IProduct } from '@/types/general';
 import { useRouter } from 'next/navigation';
 import { ROUTE } from '@/constants/routes';
 import Image from 'next/image';
+import { mockCategories } from '@/constants/mockCategories';
 
 interface IProductFormProps {
   selectedProduct?: IProduct
@@ -105,11 +106,9 @@ export const ProductForm = ({ selectedProduct }: IProductFormProps) => {
                   <SelectValue placeholder="Select a category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="mugs">Mugs</SelectItem>
-                  <SelectItem value="clothing">Clothing</SelectItem>
-                  <SelectItem value="accessories">Accessories</SelectItem>
-                  <SelectItem value="stickers">Stickers</SelectItem>
-                  <SelectItem value="books">Books</SelectItem>
+                  {mockCategories.map((cat: ICategory) => (
+                    <SelectItem key={cat.id} value={cat.name}>{cat.name}</SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
