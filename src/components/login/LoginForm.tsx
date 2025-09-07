@@ -6,10 +6,19 @@ import { Label } from "@/components/ui/label"
 import { FcGoogle } from "react-icons/fc";
 import Lottie from "lottie-react"
 import passwordAuthAnimation from "@/assets/lotties/PasswordAuthentication.json"
+import { useRouter } from "next/navigation";
+import { ROUTE } from "@/constants/routes";
 
 export function LoginForm() {
+  const router = useRouter();
+
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push(ROUTE.DASHBOARD);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleLogin}>
       <div className="flex flex-col gap-4">
         <div className="w-full flex justify-center">
           <Lottie animationData={passwordAuthAnimation} loop={true} className="w-full h-full max-w-[8rem]" />
@@ -44,7 +53,7 @@ export function LoginForm() {
           Or continue with
         </span>
       </div>
-      <Button variant="outline" className="w-full gap-1">
+      <Button variant="outline" type="submit" className="w-full gap-1">
         <FcGoogle />
         <span className="-mt-0.5">Login with Google</span>
       </Button>

@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { LogOut } from "lucide-react";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
+import { useRouter } from "next/navigation";
+import { ROUTE } from "@/constants/routes";
 
 interface ILogoutButtonProps {
   className?: string;
 };
 
 export default function LogoutButton({ className }: ILogoutButtonProps) {
+  const router = useRouter();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
@@ -33,7 +36,10 @@ export default function LogoutButton({ className }: ILogoutButtonProps) {
               Cancel
             </Button>
           </DialogClose>
-          <Button variant="destructive" onClick={() => setIsDialogOpen(false)}>
+          <Button
+            variant="destructive"
+            onClick={() => router.push(ROUTE.LOGIN)}
+          >
             Yes, Logout
           </Button>
         </div>
