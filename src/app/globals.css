@@ -70,6 +70,16 @@
   font-family: 'Unbounded', sans-serif;
 }
 
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #8080808b;
+  border-radius: 50px;
+}
+
 .bg-primary-gradient {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
 }

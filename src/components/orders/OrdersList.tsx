@@ -1,17 +1,12 @@
 'use client'
 
-import { useState } from "react";
 import { OrderListHeader } from "./OrderListHeader"
 import { OrderTable } from "./OrdersTable";
 import { IOrder } from "@/types/general";
 import mockOrders from "@/constants/mockOrders";
 
 export default function OrdersList() {
-  const [orders] = useState<IOrder[]>(mockOrders);
-
-  const handleFilter = () => {
-    console.log("Filter orders");
-  };
+  const orders: IOrder[] = mockOrders;
 
   const handleSearch = (value: string) => {
     console.log("Search orders:", value);
@@ -20,10 +15,7 @@ export default function OrdersList() {
   return (
     <div className="h-fit">
       <div className="container mx-auto space-y-4">
-        <OrderListHeader
-          onFilter={handleFilter}
-          onSearchChange={handleSearch}
-        />
+        <OrderListHeader onSearchChange={handleSearch} />
         <OrderTable orders={orders} />
       </div>
     </div>

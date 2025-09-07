@@ -1,20 +1,12 @@
 'use client'
 
-import { useState } from "react";
 import { ProductListHeader } from "./ProductListHeader";
 import { ProductTable } from "./ProductTable";
 import { IProduct } from "@/types/general";
 import { mockProducts } from "@/constants/mockProducts";
 
 export default function ProductsList() {
-  const [products] = useState<IProduct[]>(mockProducts);
-
-  const handleFilter = () => {
-    console.log({
-      title: "Filter Products",
-      description: "Filter functionality would be implemented here."
-    });
-  };
+  const products: IProduct[] = mockProducts;
 
   const handleSearch = () => {
     console.log({
@@ -26,14 +18,8 @@ export default function ProductsList() {
   return (
     <div className="h-fit">
       <div className="container mx-auto space-y-4">
-        <ProductListHeader
-          onFilter={handleFilter}
-          onSearchChange={handleSearch}
-        />
-
-        <ProductTable
-          products={products}
-        />
+        <ProductListHeader onSearchChange={handleSearch} />
+        <ProductTable products={products} />
       </div>
     </div>
   );

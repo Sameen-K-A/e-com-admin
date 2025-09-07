@@ -1,17 +1,17 @@
 'use client'
 
-import { Plus, Filter, Search } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ROUTE } from "@/constants/routes";
 import { useRouter } from "next/navigation";
+import { ProductFilter } from "./FilterPopovers";
 
 interface ProductListHeaderProps {
-  onFilter: () => void;
   onSearchChange: (value: string) => void;
 }
 
-export const ProductListHeader = ({ onFilter, onSearchChange }: ProductListHeaderProps) => {
+export const ProductListHeader = ({ onSearchChange }: ProductListHeaderProps) => {
   const router = useRouter();
 
   return (
@@ -28,14 +28,7 @@ export const ProductListHeader = ({ onFilter, onSearchChange }: ProductListHeade
       </div>
 
       <div className="flex gap-1 h-9">
-        <Button
-          variant="outline"
-          onClick={onFilter}
-          className="gap-2 h-9 rounded-3xl w-fit md:min-w-32"
-        >
-          <Filter className="h-4 w-4" />
-          <span className="hidden md:inline">Filter</span>
-        </Button>
+        <ProductFilter />
 
         <Button onClick={() => router.push(ROUTE.ADD_PRODUCT)} className="gap-2 rounded-3xl w-fit md:min-w-32 h-9">
           <Plus className="h-4 w-4" />
