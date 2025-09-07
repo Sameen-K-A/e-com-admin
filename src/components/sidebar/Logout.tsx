@@ -27,17 +27,15 @@ export default function LogoutButton({ className }: ILogoutButtonProps) {
             Are you sure you want to logout? You will need to sign in again to access
           </DialogDescription>
         </DialogHeader>
-        <div className="space-y-4">
-          <div className="flex justify-end gap-2">
-            <DialogClose asChild>
-              <Button variant="outline" className="not-sm:w-1/2">
-                Cancel
-              </Button>
-            </DialogClose>
-            <Button variant="destructive" className="not-sm:w-1/2" onClick={() => setIsDialogOpen(false)}>
-              Yes, Logout
+        <div className="flex justify-end gap-2">
+          <DialogClose asChild>
+            <Button variant="outline">
+              Cancel
             </Button>
-          </div>
+          </DialogClose>
+          <Button variant="destructive" onClick={() => setIsDialogOpen(false)}>
+            Yes, Logout
+          </Button>
         </div>
       </DialogContent>
     </Dialog>

@@ -10,9 +10,10 @@ interface CategoryTableProps {
   categories: ICategory[];
   onAdd: () => void;
   onEdit: (category: ICategory) => void;
+  onDelete: (category: ICategory) => void
 }
 
-export default function CategoryTable({ categories, onAdd, onEdit }: CategoryTableProps) {
+export default function CategoryTable({ categories, onAdd, onEdit, onDelete }: CategoryTableProps) {
   return (
     <div className="overflow-hidden">
       <Button
@@ -66,7 +67,7 @@ export default function CategoryTable({ categories, onAdd, onEdit }: CategoryTab
                         <Pencil className='w-3 h-3' />Edit
                       </DropdownMenuItem>
                       {cat.productCount === 0 && (
-                        <DropdownMenuItem className="text-red-600">
+                        <DropdownMenuItem className="text-red-600" onClick={() => onDelete(cat)}>
                           <Trash2 className='text-red-500' />Delete
                         </DropdownMenuItem>
                       )}

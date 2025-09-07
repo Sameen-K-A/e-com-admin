@@ -5,20 +5,30 @@ import CategoryTable from './CategoryTable';
 import AddEditDialog from './AddEditDialog';
 import { mockCategories } from '@/constants/mockCategories';
 import { ICategory } from '@/types/general';
+import DeleteDialog from './DeleteCatDialog';
 
 export default function CategoryMain() {
   const categories: ICategory[] = mockCategories;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [editingCategory, setEditingCategory] = useState<ICategory | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<ICategory | null>(null);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
   const handleAddCategory = () => {
-    setEditingCategory(null);
+    console.log('Add Category');
+    setSelectedCategory(null);
     setIsDialogOpen(true);
   };
 
   const handleEditCategory = (category: ICategory) => {
-    setEditingCategory(category);
+    console.log('Edit Category:', category);
+    setSelectedCategory(category);
     setIsDialogOpen(true);
+  };
+
+  const handleDeleteCategory = (category: ICategory) => {
+    console.log('Delete Category request:', category);
+    setSelectedCategory(category);
+    setIsDeleteDialogOpen(true);
   };
 
   return (
@@ -29,12 +39,19 @@ export default function CategoryMain() {
           categories={categories}
           onEdit={handleEditCategory}
           onAdd={handleAddCategory}
+          onDelete={handleDeleteCategory}
         />
 
         <AddEditDialog
           isOpen={isDialogOpen}
           onOpenChange={setIsDialogOpen}
-          editingCategory={editingCategory}
+          selectedCategory={selectedCategory}
+        />
+
+        <DeleteDialog
+          isOpen={isDeleteDialogOpen}
+          onOpenChange={setIsDeleteDialogOpen}
+          selectedCategory={selectedCategory}
         />
       </div>
     </div>
